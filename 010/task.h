@@ -8,25 +8,23 @@
 #include <chrono>
 #include "priority.h"
 
-class Task
+namespace Todo
 {
-public:
-  Task();                           // base constructor
-  Task(const Task& copy);           // copy constructor
-  Task& operator=(const Task& copy) // copy assignment
-  ~Task();                          // destructor
-  void updateTitle(std::string new_title);
-  void updateDescription(std::string new_description);
-  void updateDueDate(auto date);
-  void checkOff();
-  
-private:
-  std::string title;        // A short descriptive title for the task
-  std::string description;  // An optional, more detailed description
-  Priority priority; 
-  bool complete = false;
-  auto creation_datetime = std::chrono::system_clock::now();
-  auto due_datetime;
-};
+  class Task : public Thing
+  {
+    public:
+      Task(std::string _title) : title(_title);           // base constructor
+      Task(std::string _title, std::string _desc) 
+        : title(_title), description(_desc);
+      Task(const Task& copy);                             // copy constructor
+      Task& operator=(const Task& copy)                   // copy assignment
+        ~Task();                                          // destructor
+      void updateTitle(std::string _title);
+      void updateDescription(std::string _desc);
+      void updateDueDate(auto _date);
+      void updatePriority(Priority _p);
+      void checkOff();
+  };
+}
 
 #endif // _TASK_H_ 
