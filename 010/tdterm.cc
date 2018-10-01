@@ -5,6 +5,8 @@
 
 #include <stdio.h>
 #include <unistd.h>
+#include "user.h"
+#include "util.h"
 
 int main (int argc, char** argv)
 {
