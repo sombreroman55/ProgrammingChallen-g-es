@@ -6,11 +6,10 @@
 
 #include <string>
 #include <chrono>
-#include "priority.h"
 
-namespace Todo
+namespace todo
 {
-  class Task : public Thing
+  class Task
   {
     public:
       Task(std::string _title) : title(_title);           // base constructor
@@ -24,6 +23,13 @@ namespace Todo
       void updateDueDate(auto _date);
       void updatePriority(Priority _p);
       void checkOff();
+    protected:
+      std::string title;
+      std::string description;
+      Priotory priority;
+      auto creation_datetime = std::chrono::system_clock::now();
+      auto due_datetime;
+      bool completed = false;
   };
 }
 

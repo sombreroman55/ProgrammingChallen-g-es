@@ -5,18 +5,19 @@
 #ifndef _PROJECT_H_
 #define _PROJECT_H_
 
-#include <string>
 #include <vector>
-#include <chrono>
-#include "list.h"
+#include "task.h"
 
-class Project
+namespace todo
 {
-public:
-  Project();
-  ~Project();
-private:
-  std::vector<List> task_lists;
-};
+  class Project : public Task
+  {
+    public:
+      Project();
+      ~Project();
+    private:
+      std::vector<List> task_lists;
+  };
+}
 
 #endif // _PROJECT_H_

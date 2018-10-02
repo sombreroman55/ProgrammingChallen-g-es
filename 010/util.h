@@ -6,9 +6,12 @@
 #ifndef _UTIL_H_
 #define _UTIL_H_
 
-void welcome(void);
-void license(void);
-void version(void);
-void credits(void);
+namespace todo
+{
+  void welcome(void);
+  void license(void);
+  void version(void);
+  void credits(void);
+}
 
 #endif // _UTIL_H_

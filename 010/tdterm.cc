@@ -5,11 +5,15 @@
 
 #include <stdio.h>
 #include <unistd.h>
-#include "user.h"
 #include "util.h"
+
+using namespace todo;
 
 int main (int argc, char** argv)
 {
-    
-    return 0;
+  welcome();
+  version();
+  license();
+  credits();
+  return 0;
 }
