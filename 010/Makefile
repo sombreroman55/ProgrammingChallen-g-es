@@ -49,7 +49,7 @@ $(TARGET): $(OBJS)
 	$(CXX) $(CXXSTD) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f *.o *~ $(TARGET)
+	rm -rf *.o *~ $(TARGET) *.dSYM
 
 depend: $(SRCS)
 	makedepend $(INCLUDES) $^
