@@ -7,15 +7,14 @@
 
 namespace todo
 {
-  void welcome()
+  void programTitle()
   {
     std::cout << "tdterm - A terminal-based To-Do List Application" << std::endl;
-    std::cout << "Welcome!" << std::endl;
   }
 
   void license()
   {
-    std::cout << "This software is liscened under" << std::endl;
+    std::cout << "This software is liscened under GNU GPL3." << std::endl;
   }
 
   void version()
@@ -27,5 +26,12 @@ namespace todo
   {
     std::cout << "Written and maintained by Andrew Roberts" << std::endl;
     std::cout << "Email: sombreroman55@gmail.com" << std::endl;
+  }
+
+  void welcome()
+  {
+    std::cout << "Welcome! If at any time you need help, enter" << std::endl;
+    std::cout << "the command \"help\", or \"h\" for short to" << std::endl;
+    std::cout << "see the available commands." << std::endl;
   }
 }
