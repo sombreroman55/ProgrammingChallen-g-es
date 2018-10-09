@@ -1,5 +1,10 @@
 # Challenge 145 - ASCII Digital Clock
 
+## Goals for This Challenge
+
+I didn't really have any goals for this challenge other than beginning this list by
+tackling what seemed to me the to be one of the easiest challenges on the list.
+
 ## Summary
 
 This ASCII digital clock was developed in Microsoft Visual Studio using Visual C++.
