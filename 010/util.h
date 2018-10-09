@@ -22,8 +22,9 @@ namespace todo
 
   // User commands
   const int PROGRAM_QUIT      = PROGRAM_BASE + 0;
-  const int PROGRAM_LOGIN     = PROGRAM_BASE + 1;
-  const int PROGRAM_ADD_USER  = PROGRAM_BASE + 2;
+  const int PROGRAM_HELP      = PROGRAM_BASE + 1;
+  const int PROGRAM_LOGIN     = PROGRAM_BASE + 2;
+  const int PROGRAM_REGISTER  = PROGRAM_BASE + 3;
 
   // Task commands
   const int TASK_ADD          = TASK_BASE + 0;
@@ -32,10 +33,29 @@ namespace todo
   const int TASK_CHECK_OFF    = TASK_BASE + 3;
 
   // List commands
+  const int LIST_ADD          = TASK_BASE + 0;
+  const int LIST_REMOVE       = TASK_BASE + 1;
+  const int LIST_UPDATE       = TASK_BASE + 2;
+  const int LIST_CHECK_OFF    = TASK_BASE + 3;
 
   // Project commands
+  const int PROJECT_ADD       = TASK_BASE + 0;
+  const int PROJECT_REMOVE    = TASK_BASE + 1;
+  const int PROJECT_UPDATE    = TASK_BASE + 2;
+  const int PROJECT_CHECK_OFF = TASK_BASE + 3;
 
   // Miscellaneous commands
+  
+  // Screens
+  enum class Screen
+  {
+    Welcome,
+    Login,
+    Register,
+    Add,
+    Remove,
+    Update
+  };
 
   // Opening messages
   void programTitle(void);
@@ -45,7 +65,7 @@ namespace todo
   void welcome(void);
 
   // Program data
-  std::map<std::string, user>
+  std::map<std::string, User> mapped_users;
 }
 
 #endif // _UTIL_H_
