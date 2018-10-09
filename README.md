@@ -14,6 +14,7 @@ request.
 
 | Challenge Number | Description | Difficulty | Language | Date Started | 
 | ---------------- | ----------- | ---------- | -------- | ------------ |
+| 3                | IRC Client  | Medium     | ???      | October 8, 2018 |
 | 10               | To-Do List Application | Easy | C++ | October 1, 2018 |
 
 ## Completed Challenges
