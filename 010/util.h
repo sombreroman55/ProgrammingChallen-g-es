@@ -25,6 +25,7 @@ namespace todo
   const int PROGRAM_HELP      = PROGRAM_BASE + 1;
   const int PROGRAM_LOGIN     = PROGRAM_BASE + 2;
   const int PROGRAM_REGISTER  = PROGRAM_BASE + 3;
+  const int PROGRAM_ERROR     = -PROGRAM_HELP;
 
   // Task commands
   const int TASK_ADD          = TASK_BASE + 0;
@@ -50,11 +51,7 @@ namespace todo
   enum class Screen
   {
     Welcome,
-    Login,
-    Register,
-    Add,
-    Remove,
-    Update
+    Home
   };
 
   // Opening messages
