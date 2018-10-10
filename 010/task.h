@@ -5,8 +5,10 @@
 #define _TASK_H_
 
 #include <string>
-#include <chrono>
+#include <ctime>
 #include "priority.h"
+
+// TODO: Add time support for creation and due dates
 
 namespace todo
 {
@@ -20,16 +22,12 @@ namespace todo
         ~Task();                                    // destructor
       void UpdateTitle(std::string _title);
       void UpdateDescription(std::string _desc);
-      void UpdateDueDate(std::chrono::time_point _date);
       void UpdatePriority(Priority _p);
       void CheckOff();
     protected:
       std::string title;
       std::string description;
       Priority priority;
-      std::time_t creation_datetime =
-        std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-      std::time_t due_datetime;
       bool completed = false;
   };
 }

@@ -42,7 +42,39 @@ int main (int argc, char** argv)
       case PROGRAM_QUIT:   // quit
         userQuit = true;
         break;
+      case PROGRAM_HELP:
+        displayHelp(currentScreen);
+        break;
+      case PROGRAM_LOGIN:
+        break;
+      case PROGRAM_REGISTER:
+        break;
+      case TASK_ADD:
+        break;
+      case TASK_REMOVE:
+        break;
+      case TASK_UPDATE:
+        break;
+      case TASK_CHECK_OFF:
+        break;
+      case LIST_ADD:
+        break;
+      case LIST_REMOVE:
+        break;
+      case LIST_UPDATE:
+        break;
+      case LIST_CHECK_OFF:
+        break;
+      case PROJECT_ADD:
+        break;
+      case PROJECT_REMOVE:
+        break;
+      case PROJECT_UPDATE:
+        break;
+      case PROJECT_CHECK_OFF:
+        break;
       default:
+        std::cout << "Error! Unrecognized or malformed command!" << std::endl;
         displayHelp(currentScreen);
         break;
     }
@@ -105,7 +137,7 @@ std::vector<std::string> commandParser(std::string line)
 {
   std::vector<std::string> command_collection;
   std::string comm = "";
-  for (int i = 0; i < line.length(); i++)
+  for (unsigned int i = 0; i < line.length(); i++)
   {
     if (line[i] == ' ')
     {
@@ -117,6 +149,7 @@ std::vector<std::string> commandParser(std::string line)
       comm += line[i];
     }
   }
+  command_collection.push_back(comm);
   return command_collection;
 }
 
@@ -127,7 +160,19 @@ void displayHelp(Screen scr)
   {
     case Screen::Welcome:
       break;
+    case Screen::Login:
+      break;
+    case Screen::Register:
+      break;
+    case Screen::Add:
+      break;
+    case Screen::Remove:
+      break;
+    case Screen::Update:
+      break;
     default:
+      // If we reach this point something really went wrong!
+      std::cout << "You shouldn't be here!" << std::endl;
       break;
   }
 }

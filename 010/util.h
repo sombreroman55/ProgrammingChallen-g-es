@@ -33,16 +33,16 @@ namespace todo
   const int TASK_CHECK_OFF    = TASK_BASE + 3;
 
   // List commands
-  const int LIST_ADD          = TASK_BASE + 0;
-  const int LIST_REMOVE       = TASK_BASE + 1;
-  const int LIST_UPDATE       = TASK_BASE + 2;
-  const int LIST_CHECK_OFF    = TASK_BASE + 3;
+  const int LIST_ADD          = LIST_BASE + 0;
+  const int LIST_REMOVE       = LIST_BASE + 1;
+  const int LIST_UPDATE       = LIST_BASE + 2;
+  const int LIST_CHECK_OFF    = LIST_BASE + 3;
 
   // Project commands
-  const int PROJECT_ADD       = TASK_BASE + 0;
-  const int PROJECT_REMOVE    = TASK_BASE + 1;
-  const int PROJECT_UPDATE    = TASK_BASE + 2;
-  const int PROJECT_CHECK_OFF = TASK_BASE + 3;
+  const int PROJECT_ADD       = PROJECT_BASE + 0;
+  const int PROJECT_REMOVE    = PROJECT_BASE + 1;
+  const int PROJECT_UPDATE    = PROJECT_BASE + 2;
+  const int PROJECT_CHECK_OFF = PROJECT_BASE + 3;
 
   // Miscellaneous commands
   
@@ -64,8 +64,9 @@ namespace todo
   void credits(void);
   void welcome(void);
 
-  // Program data
-  std::map<std::string, User> mapped_users;
+  // Print to console in a nice way
+  void prettyPrint(std::string to_print);
+
 }
 
 #endif // _UTIL_H_
