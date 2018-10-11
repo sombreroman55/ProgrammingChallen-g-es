@@ -46,6 +46,7 @@ namespace todo
   const int PROJECT_CHECK_OFF = PROJECT_BASE + 3;
 
   // Miscellaneous commands
+  const int MISC_EMPTY        = MISC_BASE + 0;
   
   // Screens
   enum class Screen

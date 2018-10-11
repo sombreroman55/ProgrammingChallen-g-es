@@ -58,6 +58,7 @@ int main (int argc, char** argv)
         displayLogin();
         break;
       case PROGRAM_REGISTER:
+        displayRegister();
         break;
       case TASK_ADD:
         break;
@@ -83,6 +84,8 @@ int main (int argc, char** argv)
         break;
       case PROJECT_CHECK_OFF:
         break;
+      case MISC_EMPTY:
+        break;
       default:
         displayHelp(true);
         break;
@@ -97,6 +100,8 @@ int main (int argc, char** argv)
 // be cleaned up someday.
 int routeCommand(std::vector<std::string> commands)
 {
+  if (commands[0].empty())
+    return MISC_EMPTY;
   if (commands[0] == "h" || commands[0] == "help")
     return PROGRAM_HELP;
   if (commands[0] == "q" || commands[0] == "quit")

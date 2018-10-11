@@ -56,9 +56,10 @@ namespace todo
         std::cout << to_print.substr(i+1) << std::endl;
         return;
       }
-      i += 81;
-      while (to_print[--i] != ' ') ; 
-      std::cout << to_print.substr(last_i, i) << std::endl;
+      int char_amount = 81;
+      i += char_amount;
+      while (to_print[--i] != ' ') --char_amount; 
+      std::cout << to_print.substr(last_i, char_amount-1) << std::endl;
       last_i = i+1;
     }
   }
