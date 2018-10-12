@@ -5,6 +5,8 @@
 
 #include <iostream>
 #include <algorithm>
+#include <locale>
+#include <cctype>
 #include <string>
 #include <vector>
 #include <unistd.h>
@@ -18,6 +20,14 @@ void displayHelp (bool usage_error = false);
 void displayLogin (void);
 void displayRegister (void);
 void displayAdd (void);
+
+// input functions
+static std::string getInput();
+static inline void ltrim(std::string &s);
+static inline void rtrim(std::string &s);
+static inline void trim(std::string &s);
+static inline void toLower(std::string &s);
+
 static Screen currentScreen;
 
 int main (int argc, char** argv)
@@ -40,7 +50,7 @@ int main (int argc, char** argv)
   while (!userQuit)
   {
     std::cout << "td> ";
-    std::getline(std::cin, commands);
+    commands = getInput();
     std::vector<std::string> parsed_commands = commandParser(commands);
     int command_code = routeCommand(parsed_commands);
     switch(command_code)
@@ -226,12 +236,18 @@ void displayLogin (void)
   std::string password;
   std::cout << "td::login> Welcome back! Please enter the following informaton:" << std::endl;
   std::cout << "td::login> Username: ";
-  std::cin >> username;
+  username = getInput();
+  
   while (tries--)
   {
     std::cout << "td::login> Password: ";
-    std::cin >> password;
+    password = getInput();
     // TODO: Try log in using username/password pair
+    if (password == "b")
+    {
+      currentScreen = Screen::Home;
+      return;
+    }
   }
   std::cout << "td::login> Permission denied. Please try again." << std::endl;
 }
@@ -244,19 +260,59 @@ void displayRegister (void)
   std::string password;
   std::cout << "td::register> Welcome new user! Please enter the following informaton:" << std::endl;
   std::cout << "td::register> Username: ";
-  std::cin >> username;
+  username = getInput();
   std::cout << "td::register> Password: ";
-  std::cin >> password;
+  password = getInput();
   std::string new_user_string = 
-    "Welcome " + username + " to tdterm! Please take a look at the help prompts "
+    "\nWelcome " + username + " to tdterm! Please take a look at the help prompts "
     "for help on how to use this program. Also take a look at the documentation "
     "available at: https://github.com/sombreroman55/ProgrammingChallen-g-es/010 "
     "or enter \"manual\" or \"man\" for short for a more in depth look at how to "
-    "use this program. We hope you enjoy using tdterm!";
+    "use this program. We hope you enjoy using tdterm!\n";
   // TODO: Make manual page of documentation with controls like that of man
   prettyPrint(new_user_string);
 }
 
 void displayAdd (void)
 {
+}
+
+static std::string getInput()
+{
+  std::string input;
+  std::getline (std::cin, input);
+  toLower (input);
+  trim (input);
+  return input;
+}
+
+// trim from start (in place)
+static inline void ltrim(std::string &s) 
+{
+    s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](int ch) {
+        return !std::isspace(ch);
+    }));
+}
+
+// trim from end (in place)
+static inline void rtrim(std::string &s) 
+{
+    s.erase(std::find_if(s.rbegin(), s.rend(), [](int ch) {
+        return !std::isspace(ch);
+    }).base(), s.end());
+}
+
+// trim from both ends (in place)
+static inline void trim(std::string &s) 
+{
+    ltrim(s);
+    rtrim(s);
+}
+
+static inline void toLower(std::string &s)
+{
+  for(int i = 0; i < s.length(); i++)
+  {
+    s[i] = tolower(s[i]);
+  }
 }
