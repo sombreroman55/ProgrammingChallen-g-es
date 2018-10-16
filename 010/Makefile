@@ -20,7 +20,7 @@ LFLAGS =
 LIBS =
 
 # Source files and object files
-SRCS = util.cc tdterm.cc
+SRCS = util.cc tdterm.cc list.cc project.cc task.cc serialization.cc user.cc
 OBJS = $(SRCS:.c=.o)
 
 # Define the executable file(s)

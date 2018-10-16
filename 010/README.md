@@ -19,6 +19,9 @@ As the title states, this is a To-Do List application with a CLI user interface.
 I'm a big fan of To-Do lists so I wanted to make this application something that
 I would want to use.
 
+## Dependencies
+
+
 ## Implementation
 
 This project gave me a chance to come up with my own architecture on how to implement

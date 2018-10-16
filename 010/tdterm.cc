@@ -11,24 +11,27 @@
 #include <vector>
 #include <unistd.h>
 #include "util.h"
+#include "serialization.h"
 
 using namespace todo;
 
-int routeCommand (std::vector<std::string> comm);
-std::vector<std::string> commandParser (std::string line);
-void displayHelp (bool usage_error = false);
-void displayLogin (void);
-void displayRegister (void);
-void displayAdd (void);
+// Prompt functions
+static void displayHelp (bool usage_error = false);
+static void displayLogin (void);
+static void displayRegister (void);
+static void displayAdd (void);
 
 // input functions
-static std::string getInput();
+static std::string getInput(void);
+static int routeCommand (std::vector<std::string> comm);
+static std::vector<std::string> commandParser (std::string line);
 static inline void ltrim(std::string &s);
 static inline void rtrim(std::string &s);
 static inline void trim(std::string &s);
 static inline void toLower(std::string &s);
 
 static Screen currentScreen;
+Serializer::Instance();
 
 int main (int argc, char** argv)
 {
@@ -101,6 +104,7 @@ int main (int argc, char** argv)
         break;
     }
   }
+
   // TODO: Save user data before quitting/exiting
   return 0;
 }
@@ -311,7 +315,7 @@ static inline void trim(std::string &s)
 
 static inline void toLower(std::string &s)
 {
-  for(int i = 0; i < s.length(); i++)
+  for(unsigned int i = 0; i < s.length(); i++)
   {
     s[i] = tolower(s[i]);
   }
