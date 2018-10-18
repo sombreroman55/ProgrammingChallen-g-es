@@ -18,8 +18,10 @@ namespace todo
       void AddTask(Task t);
       void RemoveTask();
       void PrintTasks();
+      std::string serialize();
     private:
       std::vector<Task> tasks;  // The tasks associated with this list
+      std::string serializeTasks();
   };
 }
 

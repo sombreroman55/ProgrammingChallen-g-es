@@ -16,8 +16,10 @@ namespace todo
       Project();
       ~Project();
       void AddList(List l);
+      std::string serialize();
     private:
       std::vector<List> task_lists;
+      std::string serializeLists();
   };
 }
 

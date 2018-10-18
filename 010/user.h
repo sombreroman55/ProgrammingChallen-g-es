@@ -18,6 +18,7 @@ namespace todo
       ~User();
       void setDefaultProject(Project pro);
       void addProject(Project pro);
+      std::string serialize();
     private:
       std::string name;
       std::string password;

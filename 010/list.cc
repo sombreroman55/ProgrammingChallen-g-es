@@ -3,15 +3,40 @@
  */
 
 #include "list.h"
+#include <sstream>
+#include <algorithm>
 
 namespace todo
 {
-    List::List() { }
+  List::List() { }
 
-    List::~List() { }
+  List::~List() { }
 
-    void List::AddTask(Task t)
+  void List::AddTask(Task t)
+  {
+    tasks.push_back(t);
+  }
+
+  std::string List::serialize()
+  {
+    std::ostringstream os;
+    os << "<list>\n" <<
+      "<title>" << title << "</title>\n" << 
+      "<description>" << description << "</description>\n" << 
+      "<priority>" << (int)priority << "</priority>\n" << 
+      "<completed>" << completed << "</completed>\n" << 
+      "<listtasks\n" << serializeTasks() << "</listtasks>\n" <<
+      "</list>\n";
+    return os.str();
+  }
+
+  std::string List::serializeTasks()
+  {
+    std::ostringstream os;
+    for (unsigned int i = 0; i < tasks.size(); i++)
     {
-        tasks.push_back(t);
+      os << tasks[i].serialize();
     }
+    return os.str();
+  }
 }

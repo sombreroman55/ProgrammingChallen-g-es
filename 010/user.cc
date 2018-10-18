@@ -3,3 +3,4 @@
  */
 
 #include "user.h"
+#include <sstream>
