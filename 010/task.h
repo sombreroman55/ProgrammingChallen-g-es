@@ -15,12 +15,11 @@ namespace todo
   class Task
   {
     public:
-      Task(std::string _title);                     // base constructor
-      Task(std::string _title, std::string _desc);
-      Task(std::string serialized);
-      Task(const Task& copy);                       // copy constructor
-      Task& operator=(const Task& copy);            // copy assignment
-        ~Task();                                    // destructor
+      Task();                             // base constructor
+      Task(std::string serialized);       // Deserializer constructor
+      Task(const Task& copy);             // copy constructor
+      Task& operator=(const Task& copy);  // copy assignment
+        ~Task();                          // destructor
       void UpdateTitle(std::string _title);
       void UpdateDescription(std::string _desc);
       void UpdatePriority(Priority _p);

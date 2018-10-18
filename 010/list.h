@@ -13,8 +13,7 @@ namespace todo
   class List : public Task
   {
     public:
-      List(std::string _title);
-      List(std::string _title, std::string _desc);
+      List();
       ~List();
       void AddTask(Task t);
       void RemoveTask();

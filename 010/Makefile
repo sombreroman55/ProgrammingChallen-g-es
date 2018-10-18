@@ -20,7 +20,7 @@ LFLAGS =
 LIBS =
 
 # Source files and object files
-SRCS = util.cc tdterm.cc list.cc project.cc task.cc serialization.cc user.cc
+SRCS = util.cc tdterm.cc task.cc list.cc project.cc user.cc
 OBJS = $(SRCS:.c=.o)
 
 # Define the executable file(s)
@@ -55,3 +55,12 @@ depend: $(SRCS)
 	makedepend $(INCLUDES) $^
 
 # DO NOT DELETE THIS LINE -- make depend needs it
+
+util.o: util.h user.h project.h list.h task.h priority.h
+tdterm.o: /usr/include/unistd.h /usr/include/features.h
+tdterm.o: /usr/include/stdc-predef.h util.h user.h project.h list.h task.h
+tdterm.o: priority.h
+task.o: task.h priority.h
+list.o: list.h task.h priority.h
+project.o: project.h list.h task.h priority.h
+user.o: user.h project.h list.h task.h priority.h

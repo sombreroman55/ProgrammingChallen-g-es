@@ -15,6 +15,7 @@ namespace todo
     public:
       Project();
       ~Project();
+      void AddList(List l);
     private:
       std::vector<List> task_lists;
   };
