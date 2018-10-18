@@ -31,7 +31,6 @@ static inline void trim(std::string &s);
 static inline void toLower(std::string &s);
 
 static Screen currentScreen;
-Serializer::Instance();
 
 int main (int argc, char** argv)
 {
@@ -112,7 +111,7 @@ int main (int argc, char** argv)
 // Route the text command to the proper command code
 // NOTE: This function is admittedly very ugly and should
 // be cleaned up someday.
-int routeCommand(std::vector<std::string> commands)
+static int routeCommand(std::vector<std::string> commands)
 {
   if (commands[0].empty())
     return MISC_EMPTY;
@@ -169,7 +168,7 @@ int routeCommand(std::vector<std::string> commands)
 // Split out the spaces between commands and identifiers
 // Inefficient string parsing function but good enough for
 // our purposes.
-std::vector<std::string> commandParser(std::string line)
+static std::vector<std::string> commandParser(std::string line)
 {
   std::vector<std::string> command_collection;
   std::string comm = "";
@@ -190,7 +189,7 @@ std::vector<std::string> commandParser(std::string line)
 }
 
 // Print help prompt for current screen
-void displayHelp(bool usage_error)
+static void displayHelp(bool usage_error)
 {
   if (usage_error)
   {
@@ -232,7 +231,7 @@ void displayHelp(bool usage_error)
   }
 }
 
-void displayLogin (void)
+static void displayLogin (void)
 {
   // TODO: Track username/password pairs
   int tries = 3;
@@ -241,7 +240,7 @@ void displayLogin (void)
   std::cout << "td::login> Welcome back! Please enter the following informaton:" << std::endl;
   std::cout << "td::login> Username: ";
   username = getInput();
-  
+
   while (tries--)
   {
     std::cout << "td::login> Password: ";
@@ -256,30 +255,45 @@ void displayLogin (void)
   std::cout << "td::login> Permission denied. Please try again." << std::endl;
 }
 
-void displayRegister (void)
+static void displayRegister (void)
 {
   // TODO: Store secure versions of password, not plain text
   // TODO: Track username/password pairs
   std::string username;
   std::string password;
+  std::string confirmation;
   std::cout << "td::register> Welcome new user! Please enter the following informaton:" << std::endl;
   std::cout << "td::register> Username: ";
   username = getInput();
   std::cout << "td::register> Password: ";
   password = getInput();
-  std::string new_user_string = 
-    "\nWelcome " + username + " to tdterm! Please take a look at the help prompts "
-    "for help on how to use this program. Also take a look at the documentation "
-    "available at: https://github.com/sombreroman55/ProgrammingChallen-g-es/010 "
-    "or enter \"manual\" or \"man\" for short for a more in depth look at how to "
-    "use this program. We hope you enjoy using tdterm!\n";
-  // TODO: Make manual page of documentation with controls like that of man
-  prettyPrint(new_user_string);
+  std::cout << "td::register> Confirm Passowrd: ";
+  confirmation = getInput();
+  if (password == confirmation)
+  {
+    std::string new_user_string = 
+      "\nWelcome " + username + " to tdterm! Please take a look at the help prompts "
+      "for help on how to use this program. Also take a look at the documentation "
+      "available at: https://github.com/sombreroman55/ProgrammingChallen-g-es/010 "
+      "or enter \"manual\" or \"man\" for short for a more in depth look at how to "
+      "use this program. We hope you enjoy using tdterm!\n";
+    // TODO: Make manual page of documentation with controls like that of man
+    prettyPrint(new_user_string);
+    currentScreen = Screen::Home;
+  }
+  else
+  {
+    std::cout << "Passwords did not match! Please try again!" << std::endl;
+  }
 }
 
-void displayAdd (void)
+static void displayAdd (void)
 {
 }
+
+//****************************************************************************//
+//******************* INPUT SANITIZATION HELPER FUNCTIONS ********************//
+//****************************************************************************//
 
 static std::string getInput()
 {
@@ -293,24 +307,24 @@ static std::string getInput()
 // trim from start (in place)
 static inline void ltrim(std::string &s) 
 {
-    s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](int ch) {
+  s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](int ch) {
         return !std::isspace(ch);
-    }));
+        }));
 }
 
 // trim from end (in place)
 static inline void rtrim(std::string &s) 
 {
-    s.erase(std::find_if(s.rbegin(), s.rend(), [](int ch) {
+  s.erase(std::find_if(s.rbegin(), s.rend(), [](int ch) {
         return !std::isspace(ch);
-    }).base(), s.end());
+        }).base(), s.end());
 }
 
 // trim from both ends (in place)
 static inline void trim(std::string &s) 
 {
-    ltrim(s);
-    rtrim(s);
+  ltrim(s);
+  rtrim(s);
 }
 
 static inline void toLower(std::string &s)
