@@ -9,7 +9,8 @@ My goals for this challenge are the following:
 + Improve my C++ skills through using it
 + Learn to use the Google GTest unit testing framework
 + Get better at testing my code
-+ Practice following a style guid (in this case [Google's C++ Style Guide](https://google.github.io/styleguide/cppguide.html))
++ Practice following a style guide (in this case 
+[Google's C++ Style Guide](https://google.github.io/styleguide/cppguide.html))
 + Write good documentation for a project
 + Make a program I would actually want to use
 
