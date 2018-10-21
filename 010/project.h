@@ -14,6 +14,7 @@ namespace todo
   {
     public:
       Project();
+      Project(std::string serialized_project);
       ~Project();
       void AddList(List l);
       std::string serialize();

@@ -97,6 +97,7 @@ int main (int argc, char** argv)
       case PROJECT_CHECK_OFF:
         break;
       case MISC_EMPTY:
+        // Do nothing
         break;
       default:
         displayHelp(true);
@@ -226,7 +227,7 @@ static void displayHelp(bool usage_error)
       break;
     default:
       // If we reach this point something really went wrong!
-      std::cout << "You shouldn't be here!" << std::endl;
+      std::cout << "You shouldn't be here..." << std::endl;
       break;
   }
 }

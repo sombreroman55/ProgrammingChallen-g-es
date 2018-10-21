@@ -16,7 +16,7 @@ namespace todo
   {
     public:
       Task();                             // base constructor
-      Task(std::string serialized);       // Deserializer constructor
+      Task(std::string serialized_task);       // Deserializer constructor
       Task(const Task& copy);             // copy constructor
       Task& operator=(const Task& copy);  // copy assignment
         ~Task();                          // destructor

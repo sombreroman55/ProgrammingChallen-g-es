@@ -15,10 +15,12 @@ namespace todo
   {
     public:
       User();
+      User(std::string serialized_user);
       ~User();
-      void setDefaultProject(Project pro);
-      void addProject(Project pro);
+      void SetDefaultProject(Project pro);
+      void AddProject(Project pro);
       std::string serialize();
+      std::string serializeProjects();
     private:
       std::string name;
       std::string password;

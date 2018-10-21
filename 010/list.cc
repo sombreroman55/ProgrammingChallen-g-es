@@ -10,6 +10,8 @@ namespace todo
 {
   List::List() { }
 
+  List::List(serialized_list) {}
+
   List::~List() { }
 
   void List::AddTask(Task t)

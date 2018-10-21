@@ -10,7 +10,7 @@
 namespace todo
 {
   Task::Task() { }
-  Task::Task(std::string serialized)
+  Task::Task(std::string serialized_task)
   {
   }
 

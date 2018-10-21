@@ -14,6 +14,7 @@ namespace todo
   {
     public:
       List();
+      List(serialized_list);
       ~List();
       void AddTask(Task t);
       void RemoveTask();

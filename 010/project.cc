@@ -8,6 +8,8 @@
 namespace todo
 {
   Project::Project() {}
+      
+  Project::Project(std::string serialized_project) {}
 
   Project::~Project() {}
 
