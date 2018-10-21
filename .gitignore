@@ -1,7 +1,6 @@
-# Text editor files
-*~
-*.swp
-*.un
+# ===============================
+# Windows System Files
+# ===============================
 
 # Windows image file caches
 Thumbs.db
@@ -22,12 +21,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# =========================
-# Operating System Files
-# =========================
-
-# OSX
-# =========================
+# ===============================
+# OSX System Files
+# ===============================
 
 .DS_Store
 .AppleDouble
@@ -51,11 +47,25 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# ============================
+# ===============================
 # C/C++ Files
-# ============================
+# ===============================
 
 # ===============================
-# Auto-generated Makefile files
+# Auto-generated files
 # ===============================
+
+# Makefile files
 *.bak
+
+# Text editor files
+*~
+*.swp
+*.un
+
+# ===============================
+# Project Specific files
+# ===============================
+
+# Project 010
+010/userdata.txt

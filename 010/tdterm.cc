@@ -1,9 +1,17 @@
 /* tdterm.cc
  * Main entry point for terminal to-do list.
  * This is the CLI for the user to update their list.
+ *
+ * Functions fall into the following categories:
+ *    - User command parsing
+ *    - User interface prompts
+ *    - Input sanitization functions
+ *    - Saving and loading program data
  */
 
 #include <iostream>
+#include <sstream>
+#include <fstream>
 #include <algorithm>
 #include <locale>
 #include <cctype>
@@ -15,22 +23,29 @@
 
 using namespace todo;
 
-// Prompt functions
+// User command parsing functions
+static int routeCommand (std::vector<std::string> comm);
+static std::vector<std::string> commandParser (std::string line);
+
+// User interface prompt functions
 static void displayHelp (bool usage_error = false);
 static void displayLogin (void);
 static void displayRegister (void);
 static void displayAdd (void);
 
-// input functions
+// Input sanitization functions
 static std::string getInput(void);
-static int routeCommand (std::vector<std::string> comm);
-static std::vector<std::string> commandParser (std::string line);
 static inline void ltrim(std::string &s);
 static inline void rtrim(std::string &s);
 static inline void trim(std::string &s);
 static inline void toLower(std::string &s);
 
+// Saving/loading program data functions
+static void saveUserData();
+static void loadUserData();
+
 static Screen currentScreen;
+static User* currentUser;
 
 int main (int argc, char** argv)
 {
@@ -106,8 +121,13 @@ int main (int argc, char** argv)
   }
 
   // TODO: Save user data before quitting/exiting
+  saveUserData();
   return 0;
 }
+
+//****************************************************************************//
+//*************************** USER COMMAND PARSING ***************************//
+//****************************************************************************//
 
 // Route the text command to the proper command code
 // NOTE: This function is admittedly very ugly and should
@@ -188,6 +208,10 @@ static std::vector<std::string> commandParser(std::string line)
   command_collection.push_back(comm);
   return command_collection;
 }
+
+//****************************************************************************//
+//************************** USER INTERFACE PROMPTS **************************//
+//****************************************************************************//
 
 // Print help prompt for current screen
 static void displayHelp(bool usage_error)
@@ -272,6 +296,7 @@ static void displayRegister (void)
   confirmation = getInput();
   if (password == confirmation)
   {
+    currentUser = new User (username, password);
     std::string new_user_string = 
       "\nWelcome " + username + " to tdterm! Please take a look at the help prompts "
       "for help on how to use this program. Also take a look at the documentation "
@@ -333,5 +358,28 @@ static inline void toLower(std::string &s)
   for(unsigned int i = 0; i < s.length(); i++)
   {
     s[i] = tolower(s[i]);
+  }
+}
+
+//****************************************************************************//
+//*********************** SAVING/LOADING PROGRAM DATA ************************//
+//****************************************************************************//
+
+static void loadUserData ()
+{
+}
+
+static void saveUserData ()
+{
+  std::string userData = currentUser->serialize();
+  std::ofstream userFile ("userdata.txt");
+  if (userFile.is_open())
+  {
+    userFile << userData;
+    userFile.close();
+  }
+  else
+  {
+    std::cout << "Error saving data to file!" << std::endl;
   }
 }

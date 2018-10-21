@@ -11,6 +11,17 @@ namespace todo
       
   Project::Project(std::string serialized_project) {}
 
+  Project::Project(const Project& copy)
+  {
+    // don't implement
+  }
+
+  Project& Project::operator=(const Project& copy)
+  {
+    task_lists = copy.task_lists;
+    return *this;
+  }
+
   Project::~Project() {}
 
   void Project::AddList(List l)
@@ -21,13 +32,13 @@ namespace todo
   std::string Project::serialize()
   {
     std::ostringstream os;
-    os << "<list>\n" <<
+    os << "<project>\n" <<
       "<title>" << title << "</title>\n" << 
       "<description>" << description << "</description>\n" << 
       "<priority>" << (int)priority << "</priority>\n" << 
       "<completed>" << completed << "</completed>\n" << 
-      "<listtasks\n" << serializeLists() << "</listtasks>\n" <<
-      "</list>\n";
+      "<projectlists>\n" << serializeLists() << "</projectlists>\n" <<
+      "</project>\n";
     return os.str();
   }
 

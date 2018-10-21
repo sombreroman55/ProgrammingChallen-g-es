@@ -16,10 +16,15 @@ namespace todo
 
   Task::Task(const Task& copy)
   {
+    // don't implement
   }
 
   Task& Task::operator=(const Task& copy)
   {
+    title = copy.title;
+    description = copy.description;
+    priority = copy.priority;
+    completed = copy.completed;
     return *this;
   }
 

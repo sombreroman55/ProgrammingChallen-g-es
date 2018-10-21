@@ -15,6 +15,8 @@ namespace todo
     public:
       Project();
       Project(std::string serialized_project);
+      Project(const Project& copy);             // copy constructor
+      Project& operator=(const Project& copy);  // copy assignment
       ~Project();
       void AddList(List l);
       std::string serialize();

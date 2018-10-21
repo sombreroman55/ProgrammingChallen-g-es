@@ -11,8 +11,28 @@ namespace todo
   {
   }
 
+  User::User(std::string _username, std::string _password)
+  {
+    name = _username;
+    password = _password;
+  }
+
   User::User(std::string serialized_user)
   {
+  }
+
+  User::User(const User& copy)
+  {
+    // don't implement
+  }
+
+  User& User::operator=(const User& copy)
+  {
+    name = copy.name;
+    password = copy.password;
+    projects = copy.projects;
+    defaultProject = copy.defaultProject;
+    return *this;
   }
 
   User::~User()
@@ -35,8 +55,8 @@ namespace todo
     os << "<user>\n" <<
       "<name>" << name << "</name>\n" << 
       "<password>" << password << "</password>\n" << 
-      "<defaultproject>" << defaultProject.serialize() << "</defaultproject>\n" << 
-      "<userprojects\n" << serializeProjects() << "</userprojects>\n" <<
+      "<defaultproject>\n" << defaultProject.serialize() << "</defaultproject>\n" << 
+      "<userprojects>\n" << serializeProjects() << "</userprojects>\n" <<
       "</user>\n";
     return os.str();
   }

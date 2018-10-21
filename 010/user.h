@@ -15,7 +15,10 @@ namespace todo
   {
     public:
       User();
+      User(std::string _username, std::string _password);
       User(std::string serialized_user);
+      User(const User& copy);             // copy constructor
+      User& operator=(const User& copy);  // copy assignment
       ~User();
       void SetDefaultProject(Project pro);
       void AddProject(Project pro);

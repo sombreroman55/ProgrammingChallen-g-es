@@ -10,7 +10,18 @@ namespace todo
 {
   List::List() { }
 
-  List::List(serialized_list) {}
+  List::List(std::string serialized_list) {}
+
+  List::List(const List& copy)
+  {
+    // don't implement
+  }
+
+  List& List::operator=(const List& copy)
+  {
+    tasks = copy.tasks;
+    return *this;
+  }
 
   List::~List() { }
 
@@ -27,7 +38,7 @@ namespace todo
       "<description>" << description << "</description>\n" << 
       "<priority>" << (int)priority << "</priority>\n" << 
       "<completed>" << completed << "</completed>\n" << 
-      "<listtasks\n" << serializeTasks() << "</listtasks>\n" <<
+      "<listtasks>\n" << serializeTasks() << "</listtasks>\n" <<
       "</list>\n";
     return os.str();
   }

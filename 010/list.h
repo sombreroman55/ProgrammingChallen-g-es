@@ -14,7 +14,9 @@ namespace todo
   {
     public:
       List();
-      List(serialized_list);
+      List(std::string serialized_list);
+      List(const List& copy);             // copy constructor
+      List& operator=(const List& copy);  // copy assignment
       ~List();
       void AddTask(Task t);
       void RemoveTask();
