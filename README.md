@@ -12,13 +12,16 @@ request.
 
 ## Current Challenge
 
-| Challenge Number | Description | Difficulty | Language | Date Started | 
+| Challenge Number | Description | Difficulty | Language | Date Started |
 | ---------------- | ----------- | ---------- | -------- | ------------ |
-| 3                | IRC Client  | Medium     | C        | October 8, 2018 |
-| 10               | To-Do List Application | Easy | C++ | October 1, 2018 |
+| 3  | IRC Client  | Medium     | C        | October 8, 2018 |
+| 10 | To-Do List Application | Easy | C++ | October 1, 2018 |
+| 16 | Ncurses Text Editor (with Emacs/Vim bindings | Medium | Perl | November 10, 2021 |
+| 44 | Fizzbuzz (in assembly) | Easy | Assembly | March 15, 2019 |
 
 ## Completed Challenges
 
 | Challenge Number | Description | Difficulty | Language | Date Started | Date Completed |
 | ---------------- | ----------- | ---------- | -------- | ------------ | -------------- |
-| 145              | ASCII Digital Clock | Easy | C++ | January 2, 2017 | January 2, 2017 | 
+| 59  | Caesar Cipher Cracker | Easy | Nim | November 22, 2021 | November 22, 2021 |
+| 145 | ASCII Digital Clock | Easy | C++ | January 2, 2017 | January 2, 2017 |
