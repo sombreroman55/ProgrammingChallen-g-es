@@ -39,5 +39,8 @@ I'm sure my Nim is very sloppy, but it was my first attempt. Not really sure how
 about Nim based on first impressions, but hopefully my usage would improve with further
 practice.
 
+I also did not spend a lot of time doing input validation/sanitization because that stuff
+is very tedious and boring to be quite honest.
+
 ## License
 This code is licensed under the GNU GPL3 license.
