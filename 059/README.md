@@ -1,7 +1,7 @@
 # Challenge 059 - Caesar Cipher Cracker
 
 ## Goals for This Challenge
-- A small scale program to
+- A small scale program to learn some Nim basics
 
 ## Summary
 This program is a small Caesar cipher decoder/cracker, but also an encoder.

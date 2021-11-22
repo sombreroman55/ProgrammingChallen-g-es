@@ -57,8 +57,12 @@ proc printError(error: string): void =
   printUsage()
 
 if paramCount() == 2:
+  var
+    all: array[26, string]
   if paramStr(1) == "dump-all":
-    echo caesarDumpAllPossibleDecodings(paramStr(2))
+    all = caesarDumpAllPossibleDecodings(paramStr(2))
+    for a in all:
+      echo a
   else:
     printUsage()
 
