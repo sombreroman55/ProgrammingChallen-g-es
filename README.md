@@ -21,7 +21,9 @@ request.
 
 ## Completed Challenges
 
-| Challenge Number | Description | Difficulty | Language | Date Started | Date Completed |
-| ---------------- | ----------- | ---------- | -------- | ------------ | -------------- |
-| 59  | Caesar Cipher Cracker | Easy | Nim | November 22, 2021 | November 22, 2021 |
-| 145 | ASCII Digital Clock | Easy | C++ | January 2, 2017 | January 2, 2017 |
+| Challenge Number | Description                                                         | Difficulty | Language | Date Started      | Date Completed    |
+| ---------------- | -----------                                                         | ---------- | -------- | ------------      | --------------    |
+| 59               | Caesar Cipher Cracker                                               | Easy       | Nim      | November 22, 2021 | November 22, 2021 |
+| 96               | Generate a complementary color from any input color                 | Easy       | Python3  | June 13, 2023     | June 18, 2023     |
+| 97               | Generate a 5-color scheme from the most dominant tones in any image | Medium     | Python3  | June 13, 2023     | June 18, 2023     |
+| 145              | ASCII Digital Clock                                                 | Easy       | C++      | January 2, 2017   | January 2, 2017   |
